@@ -1,4 +1,5 @@
 function [C] = compute_C(b)
+% since v'(b)=c, we obtain c from following procedure
 syms x;
 n=length(b);
 c=zeros(n,n);
