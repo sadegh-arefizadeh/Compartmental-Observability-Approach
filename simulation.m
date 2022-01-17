@@ -1,7 +1,4 @@
-% since there is not a well defined solver to solve a general nonlinear
-% optimization problem given a positive definite constraint, we break down
-% the postive definite matrix H into product of three other matrices which
-% are X'*diag(1/sum(H))*X 
+% using both algorithm 1 and 2 for 1000 different games
 clear
 clc
 n=10;
@@ -117,29 +114,5 @@ welfares{z}={welfare_algorithm_1, welfare_algorithm_2, Wo};
 
   
 end
-
-
-
-%%evaluation
-
-
-r = length(welfares{1}{3});% total number of partitions
-welfare_avali=zeros(1,1000);
-welfare_dovomi=zeros(1,1000);
-mean_value_percentile_1=zeros(1,1000);
-mean_value_percentile_2=zeros(1,1000);
-Mean_order_percentile_1=zeros(1,1000);
-Mean_order_percentile_2=zeros(1,1000);
-for i=1:1000
-%     welfares{i}{3}=welfares{i}{4};
-   welfare_avali(i)= welfares{i}{1};
-   welfare_dovomi(i)= welfares{i}{2};
-   Mean_order_percentile_1(i) =(1- find(welfares{i}{4} == welfare_avali(i))/r)*100;
-   Mean_order_percentile_2(i) = (1 - find(welfares{i}{4} == welfare_dovomi(i))/r)*100;
-   mean_value_percentile_1(i)= (1-(welfares{i}{3}(end)-welfares{i}{1})/(welfares{i}{4}(end)-welfares{i}{4}(1)))*100;
-   mean_value_percentile_2(i)= (1-(welfares{i}{3}(end)-welfares{i}{2})/(welfares{i}{4}(end)-welfares{i}{4}(1)))*100;
-end
-
- 
-%%
-
+%saving welfare in welfares_1.mat
+save('welfares_1','welfares')
