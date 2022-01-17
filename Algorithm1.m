@@ -1,7 +1,4 @@
-% since there is not a well defined solver to solve a general nonlinear
-% optimization problem given a positive definite constraint, we break down
-% the postive definite matrix H into product of three other matrices which
-% are X'*diag(1/sum(H))*X 
+%using Algorithm1. to obtain desired partition
 clear
 clc
 n=10;
@@ -85,6 +82,7 @@ end
 %%
 
 % sorting all welfares corresponding different partitioning
+% this can latter be used to determine how close the achieved partition is to real best partition
 [Wo,I]=sort(welfare);
 
 %%
