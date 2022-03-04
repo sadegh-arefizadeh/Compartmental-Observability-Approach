@@ -26,21 +26,8 @@ for i=1:c2
     end
 end
 
+% you can either create stochastic paramethers or use the saved ones
 %% stochastic W
-W_inf = {};
-b_inf = {};
-% order_percentage=ones(1,games_count);
-% value_percentage=ones(1,games_count);
-
-%load build stochastic games
-load('C:\Users\Sadegh\Desktop\Automatica\welfare_0to3_3.mat')
-%% using saved files
-load('C:\Users\Sadegh\Desktop\Automatica\W_o_to_3.mat')
-
-z=293;
-
-W = W_inf{z};
-B = b_inf{z};
 % creating stochastic game
 W=zeros(n,n);
 for i=1:n
@@ -57,6 +44,15 @@ for i=1:n
     B(i)=unifrnd(500,1000);
 end
 
+
+%% using saved files
+load('W_o_to_3.mat')
+% load('W_3_to_6.mat')
+% load('W_6_to_9.mat')
+z=108;%z can be any integer from 1 to 1000 since 1000 games are made for each condition
+
+W = W_inf{z};
+B = b_inf{z};
 
 %computing C using b
 C=compute_C(B);
@@ -76,7 +72,6 @@ welfare_algorithm_1=Welfare_partition(get_partitiong( H_convex ));
 %calculating nash equilibrium for each possible partition an the
 %corresponding welfare
 for q=1:c2
-Nashh_x{q}  = nash_compute( W,B,F{q});
 welfare(q)= Welfare_partition(F{q});
 end
 %%
@@ -87,3 +82,8 @@ end
 
 %%
 
+%the results of saved parameters are saved in variable 'welfare' and can be
+%achieved by using following codes
+% load('welfare_0to3_3.mat')
+% load('welfare_3to6_3.mat')
+% load('welfare_6to9_3.mat')

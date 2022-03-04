@@ -1,5 +1,4 @@
-function [ A] = compute_convex_( W, b, C)
-B=b;
+function [ A] = compute_convex_( W, B, C)
 n=length(W);
 welfare_convex=0;
 cvx_begin 
@@ -27,7 +26,6 @@ subject to
 sum(A)==ones(1,n);
 sum(A')==ones(1,n);
 
-% A'==A;
 A>zeros(n,n);
 cvx_end
 

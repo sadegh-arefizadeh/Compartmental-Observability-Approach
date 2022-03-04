@@ -4,7 +4,7 @@ v12=GCLFK(H,1);
  if min(v12)<1
      v12=v12+1;
  end
-n=10;
+n=length(H);
 %%
 P_or={};
 k=ones(n,1);
