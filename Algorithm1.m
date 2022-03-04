@@ -88,5 +88,5 @@ end
 % load('welfare_3to6_3.mat')
 % load('welfare_6to9_3.mat')
 
-%%the output of this code is two variables:welfare_algorithm_2 and Wo which
+%%the output of this code is two variables:welfare_algorithm_1 and Wo which
 %%can later be used to evaluate the results
