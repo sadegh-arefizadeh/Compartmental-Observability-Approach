@@ -1,6 +1,8 @@
 # Compartmental-Observability-Approach
 All codes are writen in matlab
 
+The implemented algorithms and simulations of "Compartmental observability approach for the optimal transparency problem in multi-agent systems".
+
 CVX toolbox for solving convex optimization problems should be added to your matlab in order to use algorithm 1
 
 Instructions:
